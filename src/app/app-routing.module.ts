@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { EmployeeAddEditComponent } from './employee-add-edit/employee-add-edit.component';
+import { Routes ,RouterModule} from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'Add', component: EmployeeAddEditComponent }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  declarations: [],
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes)
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routingComponents=[EmployeeAddEditComponent]
