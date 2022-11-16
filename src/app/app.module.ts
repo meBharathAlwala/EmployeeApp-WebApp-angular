@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule  } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { EmployeeService } from './services/employee.service'
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { EmployeeService } from './services/employee.service'
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
