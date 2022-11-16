@@ -3,6 +3,7 @@ import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { EmployeeService } from '../services/employee.service';
 @Component({
   selector: 'app-employee-add-edit',
+  providers:[EmployeeService],
   templateUrl: './employee-add-edit.component.html',
   styleUrls: ['./employee-add-edit.component.css']
 })
@@ -15,7 +16,7 @@ export class EmployeeAddEditComponent implements OnInit {
    }
   
   ngOnInit(): void {
-    this.empservice.refreshList();
+   // this.empservice.refreshList();
   }
   entityNoteform =new FormGroup({
     name: new FormControl('', [
@@ -34,7 +35,7 @@ export class EmployeeAddEditComponent implements OnInit {
   Submit(){
    //console.warn(this.entityNoteform.value["name"])
    this.empservice.saveEmployee(this.entityNoteform.value);
-    this.empservice.refreshList();
+   // this.empservice.refreshList();
   }
 
   

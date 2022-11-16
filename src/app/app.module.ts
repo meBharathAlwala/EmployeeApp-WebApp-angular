@@ -7,6 +7,9 @@ import { UserlistComponent } from './userlist/userlist.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule  } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { EmployeeService } from './services/employee.service'
+
 
 @NgModule({
   declarations: [
@@ -22,9 +25,10 @@ import { MatTableModule  } from '@angular/material/table';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
