@@ -1,15 +1,6 @@
 <form>
-  <span class="badge badge-pill badge-primary">
-
-    <a routerLink="" (click)="addEmployee()">Add Employee</a>
-
-  </span>
-  <router-outlet></router-outlet>
-
-
-
   <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+    <table mat-table [dataSource]="dataSource" matSort   (matSortChange)="announceSortChange($event)"
       class="mat-elevation-z8 table">
       <!-- Position Column -->
       <ng-container matColumnDef="name">
@@ -19,20 +10,20 @@
 
       <!-- Name Column -->
       <ng-container matColumnDef="age">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by age"> Age </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by age" > Age </th>
         <td mat-cell *matCellDef="let element"> {{element.age}} </td>
       </ng-container>
 
       <!-- Weight Column -->
-      <ng-container matColumnDef="dateofbirth">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by dateofbirth"> Date Of Birth
+      <ng-container matColumnDef="dateofbirth"  >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by dateofbirth" >Date Of Birth
         </th>
         <td mat-cell *matCellDef="let element"> {{element.dateofbirth}} </td>
       </ng-container>
 
       <!-- Symbol Column -->
       <ng-container matColumnDef="address">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by address">Address</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by address" >Address</th>
         <td mat-cell *matCellDef="let element"> {{element.address}} </td>
       </ng-container>
 

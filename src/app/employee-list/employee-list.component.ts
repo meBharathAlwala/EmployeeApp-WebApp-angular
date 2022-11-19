@@ -8,31 +8,35 @@ import { Employee } from '../model/employee.model';
 import { EmployeeService } from '../services/employee.service';
 import { MatSort, Sort } from '@angular/material/sort';
 
+
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-
-
-  constructor(public empservice: EmployeeService, private route: ActivatedRoute, private router: Router, private _liveAnnouncer: LiveAnnouncer) {
-  }
-  displayedColumns: string[] = ['name', 'age', 'dateofbirth', 'address'];
+  emp: Employee[] = []
   dataSource: any = new MatTableDataSource<Employee>();
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  emp: Employee[] = [];
+  
+  constructor(public empservice: EmployeeService, private route: ActivatedRoute, private router: Router, private _liveAnnouncer: LiveAnnouncer) {
+
+  }
+  displayedColumns: string[] = ['name', 'age', 'dateofbirth', 'address'];
+  ;
 
 
 
   addEmployee() {
-    this.router.navigate(['/Add']);
+    this.router.navigateByUrl('Add');
   }
 
 
   ngOnInit(): void {
     this.getEmployeeData();
+    this.dataSource.paginator = this.paginator;
   }
 
   getEmployeeData() {
@@ -40,14 +44,11 @@ export class EmployeeListComponent implements OnInit {
       res => {
         this.emp = res as Employee[];
         this.dataSource = new MatTableDataSource<Employee>(this.emp);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       },
       err => { console.log(err) }
     );
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   announceSortChange(sortState: Sort) {
